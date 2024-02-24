@@ -1,0 +1,14 @@
+# runnerdeployment.yaml
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: RunnerDeployment
+metadata:
+  name: k8s-runners
+  namespace: action
+spec: 
+  template:
+    spec:
+      repository: mahmoudhossni147852/ARC-Test # specify name of the repository
+      labels:
+        - my-custem-runner # runner label
+      env: []
+

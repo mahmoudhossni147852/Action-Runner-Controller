@@ -1,0 +1,20 @@
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: HorizontalRunnerAutoscaler
+metadata:
+  name: k8s-runners-autoscaler
+  namespace: action
+spec:
+  scaleTargetRef:
+    name: k8s-runners    #his target for runnerdeploment
+  scaleDownDelaySecondsAfterScaleOut: 300  #scall down the pod after creation
+  minReplicas: 1
+  maxReplicas: 10
+  metrics:
+  - type: TotalNumberOfQueuedAndInProgressWorkflowRuns
+    repositoryNames:
+    - mahmoudhossni147852/ARC-Test
+    
+  #scaleUpTriggers:
+  #  - githubEvent:
+  #      workflowJob: {}
+  #    duration: "5m" # maximum amount of time to wait for a scale-down event

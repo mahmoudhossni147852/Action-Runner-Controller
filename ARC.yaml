@@ -1,0 +1,58 @@
+replicaCount: 1  # Increase the number of replicas to 2
+webhookPort: 9443 # Port customized for webhook, make sure it is unused
+syncPeriod: 1m  # Change the synchronization period to 2 minutes
+defaultScaleDownDelay: 5m  # Increase the scale-down delay to 15 minutes
+enableLeaderElection: true
+
+authSecret:
+  enabled: true
+  create: true
+  name: "custom-controller-manager"
+  github_app_id: "808184"
+  github_app_installation_id: "46580021"
+  github_app_private_key: |
+    -----BEGIN RSA PRIVATE KEY-----
+    MIIEowIBAAKCAQEAz9Lno8p8CNGIMny4B72LKl/JgzZXcbndZD4q1a6PYOgUViXl
+    G0U//iqVXu87xJrZ6Sfl+CvYFxINSgqvNjiNWxR+fpKVKIXjkT3kK0MjKmXa7/6E
+    9Uz7H8ASiLaV0pGXOxnroQ7IYleGVbtAbYG9lebJqL3VhiWGd8VfO6zNKgeTFY93
+    pZyEod/5bf7gpzQQ5Kl3VN9LGpPRxIpKO4mcfwO+OXcGQ/kPx5f9nwH/xV1WU+Dl
+    cqNVCpbeiuQeG/VuXRCkOJAsgybvPTybK9in+5l924Vnh4IXUlNCge7Z9xjYzQxx
+    YxSnJt5k/HJVW49iggYnSFkXxxX9DY6svUoBtQIDAQABAoIBABZ/t7Ikvq7ZuEv2
+    8plr7MAGpLM+09KtE4nBrTN69WzBU0pMSfRc1+O1Snx/m9HaDdNPDXeDj55XxvaI
+    F5XgI3WDz3n2do1viUZ1E9mXKBxz8HLg9BX2Yo16ZsdENQ4Z0uyEDt1d01XKMfHg
+    FsaEMDklRhmti4s9TsRyqq+0MnXlMBVNsDC+GXmJGolUH2I0/ZrFvxBjd0FdouH0
+    UKTpDv3vlcvxl1bQ9tI5AnWS/1tvq/Vv5FYxVkHQsjPT3JxKnsodKGsxAgHaBjqo
+    bh+DQiqiNUmzeti37ZmVxea/QbnuOD1BDcZBhHueOUX3PITjEDspNV8Rl2p9qQe/
+    Jm23uzUCgYEA6mRcTCrZez1oViHRW2wXxqfBh4EPtsfmxnEisCakBbdhHaRuYBTk
+    8FD9PLX6D06pqxWHo5xAvkzYLADFJVpJj/uTg977E7ATAJ8FvTJQ8wd82p7pIv0h
+    1n5rqZSVhAZHypFrsPA63FT3ijECgDsSfG9wnvtVBDxxQQYor+BmQ4sCgYEA4vuJ
+    We/x5idcLVSrWQ4RJcSPit2kXcX/Q/0phQmvpnnAAelhAM56ESHRiYD0a+t2GWWu
+    4yfn0o8qQagsvTdTW3MieES/cyRnrMfBt7Gtdb4DBb5CsW2XRDNviS0+eUtGiBmX
+    nz4EO9vxbjfFng/MDs0ArQ7ibj+Ev0wzJGnId78CgYA9NFGpjfLWLHXHL/N0FOis
+    dfeiA4Bv8QkAvmAZcS2ZVIYmcF5l9m7FldBafwY54weI5glSHqYFSxmTe+v+0fGt
+    iDq/z4TuYibEHcIo4i+jFkxy5dXozgJ8+OvyDxtvqxgp/AkL3d7w07sDucJ2a3Zr
+    Sco1qVlMzt+f5BTRwB3T+wKBgBVhNf3HsRRJrtACQqV/wrO5AQBGgj3m8XVY+jky
+    wV2/6AsGDYIC8NJ+SftWry8fHZ+kyUVSM+7MV2GZ0qT7+hkKDjwf1Zyl2DIZGrEP
+    xlPp0uUOl7+Yn//njGDyZwkLwxf8uSBhugpdXC9Sh4Ws3T6jpqWmWkOiLgHKzqJm
+    aGCHAoGBAOW7EOPeXmr2K5LJuyC0H52ZG+pmvhO8Vpb/ugGTigwQsffCOLoyrqQj
+    AJKt/fQodjH6urMzKpzXnGuhkdFNyHxAo7l1KNB1kCkQPxfO0S+xI+VRZXWHRKOo
+    4qaDlnRM9JA/yKs4Rl9YclJ7FUwQhwMtXuydAxgzAFxS7y+YgaMs
+    -----END RSA PRIVATE KEY-----
+###########################################################################################
+###########################################################################################
+image:
+  repository: "summerwind/actions-runner-controller"
+  actionsRunnerRepositoryAndTag: "summerwind/actions-runner:ubuntu-20.04"
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
+logFormat: json  # Change log format to JSON
