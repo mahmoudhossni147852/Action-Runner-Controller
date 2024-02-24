@@ -47,6 +47,7 @@ the Helm chart during installation. These values are typically defined in a sepa
 that contains configuration settings for the Helm chart.
 
    $ terraform init
+   
    $ terraform apply
 
 
