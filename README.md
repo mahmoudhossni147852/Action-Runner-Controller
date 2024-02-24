@@ -29,7 +29,8 @@ for all of this value we can create a secret by terraform to make the authentica
 ## 3. Install Cert-Manager on Kubernetes
 
 that a component ARC uses cert-manager for certificate managment of admimssion webhhok.
-   $ helm install \
+
+ $ helm install \
   cert-manager jetstack/cert-manager \
   --namespace cert-manager \
   --create-namespace \
@@ -44,6 +45,7 @@ The secret and the action runner controller resouce that created by terraform fi
 The values attribute within the helm_release block allows you to specify a list of values to be passed to 
 the Helm chart during installation. These values are typically defined in a separate YAML file 
 that contains configuration settings for the Helm chart.
+
    $ terraform init
    $ terraform apply
 
@@ -52,6 +54,7 @@ that contains configuration settings for the Helm chart.
 
 that a custom resource defintion by ARC using for deploying github action runners on cluster.
 Create k8s/runner-deployment.yaml
+
    $ kubectl apply -f k8s/runner-deployment.yaml
    $ kubectl get pods -n actions
 
@@ -59,11 +62,12 @@ Create k8s/runner-deployment.yaml
 
 that for automaticlly update a workload resouces such as the deployment scalling up and down
 Deploy k8s/horizontal-runner-autoscaler.yaml
+
    $ kubectl apply -f k8s/horizontal-runner-autoscaler.yaml
 
 
 ## 7. Conclusion
 
-Congratulations! You have successfully set up GitHub Actions Self Hosted Runners with Autoscaling on Kubernetes. We hope this guide has been helpful in optimizing your workflow. If you encounter any issues or have suggestions for improvement, feel free to [contribute](CONTRIBUTING.md).
+Congratulations! You have successfully set up GitHub Actions Self Hosted Runners with Autoscaling on Kubernetes. We hope this guide has been helpful in optimizing your workflow.
 
 Happy coding!
