@@ -69,6 +69,6 @@ Deploy k8s/horizontal-runner-autoscaler.yaml
 
 ## 7. Conclusion
 
-Congratulations! You have successfully set up GitHub Actions Self Hosted Runners with Autoscaling on Kubernetes. We hope this guide has been helpful in optimizing your workflow.
+Congratulations! You have successfully set up GitHub Actions Self Hosted Runners with Autoscaling on Kubernetes. I hope this guide has been helpful in optimizing your workflow.
 
 Happy coding!
